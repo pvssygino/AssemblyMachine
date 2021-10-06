@@ -1,64 +1,32 @@
-#include <iostream>
-#include <stdio.h>
 #include "CPU.h"
 #include "ISA.h"
-R r = refresh();
-F f = refresh_();
-S s = refresh__();
+#include "SETTINGS.h"
 
-void esegui();
-#pragma warning(disable:4996)
 
 int main() {
+	cpu cpu_ = new_();
+	enum MENU{CREA, ESEGUI};
+	int menu = 0;
 
-	int choose = 0;
-	enum menu {CREA, ESEGUI, ESCI};
+	printf("---------------------------------------------\n");
+	printf(" 1. Crea                                    +\n");
+	printf(" 2. Esegui                                  +\n");
+	printf("---------------------------------------------\n");
+	printf("> ");
 
-	printf("---------------ASSEMBLY 8086---------------\n");
-	printf(" 0. Crea nuovo file\n");
-	printf(" 1. Esegui file\n");
-	printf(" 2. Esci\n");
-	printf("-------------------------------------------\n");
-	printf(" >");
 
-	scanf("%d", &choose);
+	char comando[9] = "add 4 r5";
+	console_(cpu_,comando);
 
-	switch (choose) {
+	scanf("%d", &menu);
+	switch (menu)
+	{
 	case CREA:
+		printf(" > ");
+		show_cpu(cpu_);		
 		break;
 	case ESEGUI:
-		esegui();
 		break;
-	case ESCI:
-		break;
-	default:
-		exit(0);
 	}
-
 	return 0;
-}
-void esegui() {
-
-	int choose = 0;
-	enum esegui_menu {CPU, MEMORIA};
-	printf(" 1. Visualizza CPU\n");
-	printf(" 2. Visualizza MEMORIA\n");
-	printf(" >");
-
-	scanf("%d", &choose);
-
-	switch (choose)
-	{
-	case CPU:
-
-		break;
-	case MEMORIA: 
-		stampa_S(s);
-		stampa_F(f);
-		stampa_R(r);
-		
-		break;
-	default:
-		break;
-	}
 }
