@@ -10,14 +10,13 @@ cpu new_() {
 		c->PC = initialize();
 		c->STACK = initialize();;
 
-		c->isready = true;
 		for (int i = 0; i < R_NUM; i++) {
 			c->r[i].value = 0;
 		}
-		return c;
 	}
 	else
 		printf("error!");
+	c->isready = true;
 	return c;
 }
 register_ initialize() {
@@ -40,7 +39,7 @@ flag zero_set() {
 void show_cpu(cpu c) {
 
 	char bytes[4] = { 0,0,0,0 };
-
+	printf("\n");
 	printf("POINTERS:          ");  
 	*bytes = c->IR.value;
     printf("IR = %X%X%X%X   ", bytes[3], bytes[2], bytes[1], bytes[0]);
@@ -69,4 +68,5 @@ void show_cpu(cpu c) {
 			printf("REGISTERS:         ");
 		}
 	}
+	printf("\n\n");
 }
