@@ -12,6 +12,8 @@
 #define jmp "jmp"
 
 void add_(cpu ,char* , char* );
+void sub_(cpu, char*, char*);
+void mv_(cpu, char*, char*);
+void jmp_(cpu, char*, char*);
 
-void console_(cpu,char*);
 #endif ISA_H
