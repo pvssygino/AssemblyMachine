@@ -10,10 +10,11 @@ Aggiornamento 11/10/2021
 »ISTRUZIONE: add s d  
 »FUNZIONE: showcpu
 
+
 Aggiornamento 14/12/2021
 
-»ISTRUZIONE: sub s d
 
+»ISTRUZIONE: sub s d
 »ISTRUZIONE: mv s d
 
 //
