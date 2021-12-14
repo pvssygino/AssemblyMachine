@@ -11,6 +11,7 @@ Aggiornamento 11/10/2021
 »FUNZIONE: showcpu
 
 Aggiornamento 14/12/2021
+
 »ISTRUZIONE: sub s d
 
 »ISTRUZIONE: mv s d
