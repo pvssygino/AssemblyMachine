@@ -17,5 +17,6 @@ Aggiornamento 14/12/2021
 »ISTRUZIONE: sub s d
 »ISTRUZIONE: mv s d
 
-//
+
+Aggiornamento 
 
