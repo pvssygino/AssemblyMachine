@@ -10,9 +10,16 @@ Aggiornamento 11/10/2021
 »ISTRUZIONE: add s d  
 »FUNZIONE: showcpu
 
-
-
-Aggiornamento 14/12/2021
+Aggiornamento 14/12/2021  (MAIN.cpp, ISA.cpp, ISA.h)
  
 »ISTRUZIONE: sub s d                                                                                      
 »ISTRUZIONE: mv s d
+
+
+Aggiornamento 15/12/2021  (ISA.cpp)
+ 
+»IMPLEMENTAZIONE FLAG:
+√zero
+√negative
+√overflow
+..carry
