@@ -1,3 +1,4 @@
+#pragma once
 #ifndef BIN_H
 #define BIN_H
 
@@ -9,5 +10,7 @@
 #define SUB_CODE "0001"
 #define NOT_CODE "0010"
 #define AND_CODE "0011"
+
+char* convert(int dec, char* output);
 
 #endif
