@@ -6,7 +6,7 @@
 
 #ifndef CPU_HEADER
 #define CPU_HEADER
-
+#include <string>
 struct register_ {
 
 	int value;
@@ -22,7 +22,6 @@ struct flag {
 };
 
 struct CPU {
-
 	register_ r[R_NUM];
 	flag f;
 

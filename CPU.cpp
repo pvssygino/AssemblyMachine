@@ -3,7 +3,6 @@
 cpu new_() {
 
 	cpu c = (cpu)malloc(sizeof(cpu));
-	
 	if (c) {
 		c->f = zero_set();
 		c->IR = initialize();
@@ -13,6 +12,7 @@ cpu new_() {
 		for (int i = 0; i < R_NUM; i++) {
 			c->r[i].value = 0;
 		}
+		
 	}
 	else
 		printf("error!");

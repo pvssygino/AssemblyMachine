@@ -1,32 +1,39 @@
 #include "RAM.h"
 #include <iostream>
-#pragma warning (disable:4996)
-ram create_ram() {
-	ram r = (ram)malloc(sizeof(struct nodo));
-	if (r != NULL)
-		r->top;
-	else
-		printf("error RAM! ");
-	return r;
+ram::ram() {
+	start = -1;
+	stack_start = -1;
 }
-bool push(ram r, char* address) {
-
-	bool pushed = false;
-
-	Node n = (struct nodo*)malloc(sizeof(struct nodo));
-	if (n != NULL) {
-		strcpy(n->address_BIN, address);
-		n->next = r->top;
-		r->top = n;
-		pushed = true;
+bool ram::push_(std::string address) {
+	start++;
+	ram_item[start] = address;
+	return true;
+}
+std::string ram::pop() {
+	std::string popped = "";
+	if (start > -1) {
+		popped = ram_item[start];
+		start--;
 	}
 	else
-		pushed = false;
-
-	return pushed;
-
+		std::cout << "RAM VUOTA!";
+	return popped;
 }
-int pop(ram r) {
-	int data = INT_MIN;
-	return data;
+void ram::show_ram() {
+	int n = start;
+	std::string popped = "";
+
+	if (n > -1) {
+		std::cout << "RAM BIN\n";
+		while (n != -1) {
+			popped = ram_item[n];
+			std::cout << n << ": " << popped;
+			n--;
+		}
+	}
+	else
+		std::cout << "RAM VUOTA\n";
+}
+ram::~ram() {
+
 }
