@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
+
 #define R_SIZE 1000
 
 class ram {
