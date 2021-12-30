@@ -1,4 +1,5 @@
 #include "RAM.h"
+#include "BIN.h"
 #include <iostream>
 ram::ram() {
 	start = -1;
@@ -20,19 +21,23 @@ std::string ram::pop() {
 	return popped;
 }
 void ram::show_ram() {
-	int n = start;
+	
+	int n = 0;
 	std::string popped = "";
+	char bytes[5];
 
-	if (n > -1) {
+	if (start > -1) {
 		std::cout << "RAM BIN\n";
-		while (n != -1) {
+		while (n <=start) {
+			convert(n, bytes);
 			popped = ram_item[n];
-			std::cout << n << ": " << popped;
-			n--;
+			std::cout << bytes << ": " << popped;
+			n++;
 		}
 	}
 	else
 		std::cout << "RAM VUOTA\n";
+		
 }
 ram::~ram() {
 
