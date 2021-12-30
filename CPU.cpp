@@ -1,5 +1,6 @@
 #include "CPU.h"
 #include <string.h>
+#include <iostream>
 cpu new_() {
 
 	cpu c = (cpu)malloc(sizeof(cpu));
@@ -60,7 +61,11 @@ void show_cpu(cpu c) {
 	printf("REGISTERS:         ");
 	for (int i = 0; i < R_NUM; i++) {
 		printf("R%d = ", i);
-		*bytes = c->r[i].value;		
+		*bytes = c->r[i].value;
+		if (bytes[0] > (char)0xF) {
+			
+			bytes[1] =bytes[0]-(char)0xF;
+		}
 		printf("%X%X%X%X ", bytes[3], bytes[2], bytes[1], bytes[0]);
 
 		if (i == 3 || i == 7 || i == 11) {
