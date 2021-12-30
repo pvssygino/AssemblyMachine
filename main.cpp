@@ -1,6 +1,6 @@
+#include "BIN.h"
 #include "CPU.h"
 #include "ISA.h"
-#include "BIN.h"
 #include "RAM.h"
 #include <iostream>
 void console_(char* packet);
@@ -11,17 +11,25 @@ int main() {
 	int menu = 0;
 	char comando[15];
 
-	printf("---------------------------------------------\n");
-	printf(" 0. Crea                                    +\n");
-	printf(" 1. Esegui                                  +\n");
-	printf("---------------------------------------------\n");
+	printf("         _________  __             \n");
+	printf("        \\____    / (__) ______        Architettura 16bit \n ");
+	printf("           /   /  |  | \\___  /            ISA 8086           \n");
+	printf("           /   /_  |  |  /   /             N Core: 1          \n");
+	printf("          /______ \\|__| /_____\\                                Unical 2021\n");
+	printf("                 \\/          \\/                               \n");
+	printf("\n");
+	printf("--------------------------------------------\n");
+	printf(" 0. Crea                                   |\n");
+	printf(" 1. Esegui                                 |\n");
+	printf("  --help                                   |\n");
+	printf("--------------------------------------------\n");
 	printf("> ");
 	scanf("%d", &menu);
 	
 	switch (menu)
 	{
 	case CREA:
-		while (true) {
+		while (comando !="exit") {
 			fgets(comando, 15, stdin);
 			console_(comando);
 			printf("> ");
@@ -58,21 +66,14 @@ void console_(char* packet) {
 
 		if (strcmp(function, add) == NULL) {
 			//printf("%s %s %s", function, sx, dx);
-			bin_address += LOGIC_GROUP;
-			bin_address += ADD_CODE;
-			bin_address += sx;
-			bin_address += dx;
+			bin_address = bin_address + LOGIC_GROUP + ADD_CODE + sx + dx;
 			add_(cpu_, sx, dx);
 			ram_.push_(bin_address);
-
 			std::cout << "                                                      ------->" << bin_address;
 		}
 		else if (strcmp(function, sub) == NULL) {
 			//printf("%s %s %s", function, sx, dx);
-			bin_address += LOGIC_GROUP;
-			bin_address += SUB_CODE;
-			bin_address += sx;
-			bin_address += dx;
+			bin_address = bin_address + LOGIC_GROUP + SUB_CODE + sx + dx;
 			sub_(cpu_, sx, dx);
             ram_.push_(bin_address);
 
@@ -99,7 +100,7 @@ void console_(char* packet) {
 		else if (strncmp(packet, "reset", 5) == NULL) {
 		}
 		else if (strncmp(packet, "exit", 4) == NULL) {
-			exit(0);
+			
 		}
 		else
 			printf("                                                         ------->error!\n");
